@@ -492,7 +492,54 @@ h3 {
   font-weight: 740;
 }
 
+.result-block {
+  margin-top: 28px;
+  min-width: 0;
+}
+
+.result-copy {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 14px;
+}
+
+.result-copy h3 {
+  margin: 0;
+}
+
+.result-copy p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.result-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 18px;
+  align-items: start;
+  margin-top: 28px;
+  min-width: 0;
+}
+
+.result-block.compact {
+  margin-top: 0;
+}
+
+.result-block.compact .result-copy {
+  display: block;
+}
+
+.result-block.compact .result-copy p {
+  margin-top: 8px;
+}
+
 .table-wrap {
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
   border: 1px solid var(--line-strong);
   border-radius: 8px;
@@ -505,6 +552,15 @@ table {
   min-width: 720px;
   border-collapse: collapse;
   font-size: 0.96rem;
+}
+
+.wide-table {
+  min-width: 960px;
+}
+
+.compact-table {
+  min-width: 620px;
+  font-size: 0.92rem;
 }
 
 th,
@@ -531,6 +587,12 @@ tbody tr:nth-child(even) td {
   background: rgba(250, 247, 241, 0.72);
 }
 
+tbody tr.highlight-row td {
+  background: rgba(14, 119, 116, 0.09);
+  color: var(--ink);
+  font-weight: 840;
+}
+
 td:nth-child(2),
 td:nth-child(3),
 td:nth-child(4) {
@@ -538,9 +600,18 @@ td:nth-child(4) {
   font-weight: 740;
 }
 
+.wide-table td:nth-child(5),
+.wide-table td:nth-child(6),
+.wide-table td:nth-child(7),
+.compact-table td:nth-child(3),
+.compact-table td:nth-child(4) {
+  font-variant-numeric: tabular-nums;
+  font-weight: 740;
+}
+
 .note {
   max-width: 820px;
-  margin: 18px 0 0;
+  margin: 22px 0 0;
   color: var(--muted);
   font-size: 0.95rem;
 }
@@ -617,6 +688,7 @@ pre {
   }
 
   .metrics,
+  .result-columns,
   .marr-stack,
   .overview-grid,
   .section-heading,
@@ -638,6 +710,11 @@ pre {
 
   .section {
     padding: 76px 22px;
+  }
+
+  .result-copy {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .method-grid {

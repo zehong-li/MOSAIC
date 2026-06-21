@@ -177,58 +177,245 @@
               <span class="metric-label">Average runtime</span>
             </div>
           </div>
-          <div class="table-wrap" role="region" aria-label="Training-free FR-PCQA result table" tabindex="0">
-            <table>
-              <thead>
-                <tr>
-                  <th>Dataset</th>
-                  <th>PLCC</th>
-                  <th>SROCC</th>
-                  <th>RMSE</th>
-                  <th>Positioning</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>SJTU</td>
-                  <td>0.912</td>
-                  <td>0.898</td>
-                  <td>0.994</td>
-                  <td>Competitive</td>
-                </tr>
-                <tr>
-                  <td>WPC</td>
-                  <td>0.844</td>
-                  <td>0.834</td>
-                  <td>12.292</td>
-                  <td>Best training-free</td>
-                </tr>
-                <tr>
-                  <td>ICIP</td>
-                  <td>0.965</td>
-                  <td>0.955</td>
-                  <td>0.297</td>
-                  <td>Competitive</td>
-                </tr>
-                <tr>
-                  <td>LS-PCQA</td>
-                  <td>0.622</td>
-                  <td>0.598</td>
-                  <td>0.652</td>
-                  <td>Best training-free</td>
-                </tr>
-                <tr>
-                  <td>MJ-PCCD</td>
-                  <td>0.831</td>
-                  <td>0.755</td>
-                  <td>0.651</td>
-                  <td>Competitive</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="result-block">
+            <div class="result-copy">
+              <h3>MOSAIC across five PCQA datasets</h3>
+              <p>
+                MOSAIC is evaluated on SJTU, WPC, ICIP, LS-PCQA, and MJ-PCCD using PLCC, SROCC, and RMSE.
+                The score remains competitive across diverse distortions while keeping the metric training-free.
+              </p>
+            </div>
+            <div class="table-wrap" role="region" aria-label="MOSAIC result table across datasets" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Dataset</th>
+                    <th>PLCC</th>
+                    <th>SROCC</th>
+                    <th>RMSE</th>
+                    <th>Positioning</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>SJTU</td>
+                    <td>0.912</td>
+                    <td>0.898</td>
+                    <td>0.994</td>
+                    <td>Competitive</td>
+                  </tr>
+                  <tr>
+                    <td>WPC</td>
+                    <td>0.844</td>
+                    <td>0.834</td>
+                    <td>12.292</td>
+                    <td>Best training-free</td>
+                  </tr>
+                  <tr>
+                    <td>ICIP</td>
+                    <td>0.965</td>
+                    <td>0.955</td>
+                    <td>0.297</td>
+                    <td>Competitive</td>
+                  </tr>
+                  <tr>
+                    <td>LS-PCQA</td>
+                    <td>0.622</td>
+                    <td>0.598</td>
+                    <td>0.652</td>
+                    <td>Best training-free</td>
+                  </tr>
+                  <tr>
+                    <td>MJ-PCCD</td>
+                    <td>0.831</td>
+                    <td>0.755</td>
+                    <td>0.651</td>
+                    <td>Competitive</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
+
+          <div class="result-block">
+            <div class="result-copy">
+              <h3>Selected training-free baseline comparison</h3>
+              <p>
+                The table highlights representative training-free FR-PCQA methods on WPC and LS-PCQA, where MOSAIC
+                obtains the strongest reported PLCC/SROCC/RMSE among the listed training-free metrics.
+              </p>
+            </div>
+            <div class="table-wrap" role="region" aria-label="Selected training-free baseline comparison on WPC and LS-PCQA" tabindex="0">
+              <table class="wide-table">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>WPC PLCC</th>
+                    <th>WPC SROCC</th>
+                    <th>WPC RMSE</th>
+                    <th>LS-PCQA PLCC</th>
+                    <th>LS-PCQA SROCC</th>
+                    <th>LS-PCQA RMSE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>PCQM</td>
+                    <td>0.750</td>
+                    <td>0.743</td>
+                    <td>15.164</td>
+                    <td>0.404</td>
+                    <td>0.362</td>
+                    <td>0.761</td>
+                  </tr>
+                  <tr>
+                    <td>GraphSIM</td>
+                    <td>0.687</td>
+                    <td>0.678</td>
+                    <td>16.649</td>
+                    <td>0.252</td>
+                    <td>0.243</td>
+                    <td>0.805</td>
+                  </tr>
+                  <tr>
+                    <td>PQI</td>
+                    <td>0.813</td>
+                    <td>0.808</td>
+                    <td>13.364</td>
+                    <td>0.437</td>
+                    <td>0.379</td>
+                    <td>0.748</td>
+                  </tr>
+                  <tr>
+                    <td>TCDM</td>
+                    <td>0.806</td>
+                    <td>0.804</td>
+                    <td>13.557</td>
+                    <td>0.335</td>
+                    <td>0.325</td>
+                    <td>0.784</td>
+                  </tr>
+                  <tr>
+                    <td>PHM</td>
+                    <td>0.838</td>
+                    <td>0.833</td>
+                    <td>12.510</td>
+                    <td>0.546</td>
+                    <td>0.500</td>
+                    <td>0.697</td>
+                  </tr>
+                  <tr class="highlight-row">
+                    <td>MOSAIC</td>
+                    <td>0.844</td>
+                    <td>0.834</td>
+                    <td>12.292</td>
+                    <td>0.622</td>
+                    <td>0.598</td>
+                    <td>0.652</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="result-columns">
+            <div class="result-block compact">
+              <div class="result-copy">
+                <h3>Fusion strategy ablation</h3>
+                <p>Two-stage adaptive fusion gives the best or tied-best result on WPC and LS-PCQA.</p>
+              </div>
+              <div class="table-wrap" role="region" aria-label="Fusion strategy ablation" tabindex="0">
+                <table class="compact-table">
+                  <thead>
+                    <tr>
+                      <th>Scheme</th>
+                      <th>Fusion</th>
+                      <th>WPC PLCC/SROCC</th>
+                      <th>LS-PCQA PLCC/SROCC</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Only 3D</td>
+                      <td>Adaptive</td>
+                      <td>0.793 / 0.775</td>
+                      <td>0.523 / 0.493</td>
+                    </tr>
+                    <tr>
+                      <td>One-stage</td>
+                      <td>Uniform</td>
+                      <td>0.835 / 0.823</td>
+                      <td>0.564 / 0.533</td>
+                    </tr>
+                    <tr>
+                      <td>One-stage</td>
+                      <td>Adaptive</td>
+                      <td>0.836 / 0.825</td>
+                      <td>0.586 / 0.560</td>
+                    </tr>
+                    <tr>
+                      <td>Two-stage</td>
+                      <td>Uniform</td>
+                      <td>0.844 / 0.833</td>
+                      <td>0.592 / 0.566</td>
+                    </tr>
+                    <tr class="highlight-row">
+                      <td>Two-stage</td>
+                      <td>Adaptive</td>
+                      <td>0.844 / 0.834</td>
+                      <td>0.622 / 0.598</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="result-block compact">
+              <div class="result-copy">
+                <h3>Runtime comparison</h3>
+                <p>MOSAIC balances multimodal fidelity modeling with practical runtime among training-free metrics.</p>
+              </div>
+              <div class="table-wrap" role="region" aria-label="Runtime comparison across methods" tabindex="0">
+                <table class="compact-table">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Time (s)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>PCQM</td>
+                      <td>3.55</td>
+                    </tr>
+                    <tr>
+                      <td>PointSSIM</td>
+                      <td>4.24</td>
+                    </tr>
+                    <tr>
+                      <td>PQI</td>
+                      <td>4.71</td>
+                    </tr>
+                    <tr>
+                      <td>TCDM</td>
+                      <td>5.22</td>
+                    </tr>
+                    <tr class="highlight-row">
+                      <td>MOSAIC</td>
+                      <td>6.41</td>
+                    </tr>
+                    <tr>
+                      <td>PHM</td>
+                      <td>14.96</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
           <p class="note">
-            Reported values follow the paper's training-free FR-PCQA comparison. Higher PLCC/SROCC and lower RMSE indicate better performance.
+            Values follow the paper's training-free FR-PCQA comparison. Higher PLCC/SROCC and lower RMSE indicate better performance.
           </p>
         </div>
       </section>
