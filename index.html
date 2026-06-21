@@ -68,38 +68,28 @@
           <div>
             <p class="section-kicker">Overview</p>
             <h2 id="overview-title">Training-free perceptual quality assessment for point clouds.</h2>
-            <p class="section-lead">
-              MOSAIC organizes full-reference quality evidence as interpretable perceptual cues instead of fitting a
-              dataset-specific score regressor.
-            </p>
+            <p class="section-lead">Interpretable 3D-2D cue fusion without MOS-supervised score fitting.</p>
           </div>
           <div class="overview-copy">
             <p>
-              MOSAIC formulates full-reference point cloud quality assessment as a multimodal perceptual inference problem.
-              Inspired by Marr's three-level account of vision, it predicts perceived quality from complementary discrepancies
-              in 3D geometry, 3D color, and projected 2D saliency.
-            </p>
-            <p>
-              The framework measures intrinsic fidelity cues in the native 3D domain, then incorporates attention-related
-              saliency consistency through a two-stage adaptive fusion strategy. It does not rely on MOS-supervised fitting
-              or regression-based score integration.
+              MOSAIC measures 3D geometry, 3D color, and projected 2D saliency, then combines them with two-stage adaptive fusion.
             </p>
           </div>
           <div class="marr-stack" aria-label="Marr-inspired organization">
             <article>
               <span>01</span>
               <h3>Computational</h3>
-              <p>Infer perceived quality from reference-distorted discrepancies.</p>
+              <p>Reference-distorted fidelity.</p>
             </article>
             <article>
               <span>02</span>
               <h3>Representational</h3>
-              <p>Describe degradation with geometry, color, and saliency cues.</p>
+              <p>Geometry, color, saliency.</p>
             </article>
             <article>
               <span>03</span>
               <h3>Implementational</h3>
-              <p>Extract 3D features, project views, estimate saliency, and fuse scores.</p>
+              <p>Feature extraction and fusion.</p>
             </article>
           </div>
         </div>
@@ -112,37 +102,32 @@
               <p class="section-kicker">Method</p>
               <h2 id="method-title">3D structure and appearance first, saliency-aware fusion second.</h2>
             </div>
-            <p>
-              The pipeline keeps the native point-cloud comparison visible, then adds view-dependent attention as a
-              separate perceptual modulation stage.
-            </p>
+            <p>Native 3D fidelity, followed by saliency modulation.</p>
           </div>
           <figure class="framework">
             <img src="assets/mosaic_framework.png" alt="Overview of the MOSAIC framework showing point alignment, 3D feature extraction, 2D saliency projection, and multimodal adaptive fusion.">
-            <figcaption>
-              MOSAIC organizes point-cloud fidelity evidence as geometry, color, and saliency modalities before predicting the final quality score.
-            </figcaption>
+            <figcaption>MOSAIC framework overview.</figcaption>
           </figure>
           <div class="method-grid" aria-label="MOSAIC method components">
             <article class="method-item">
               <span>Geometry</span>
               <h3>3D Geometry</h3>
-              <p>Local shape, linearity, curvature, and density cues capture structural fidelity between reference and distorted point clouds.</p>
+              <p>Shape, linearity, curvature, density.</p>
             </article>
             <article class="method-item">
               <span>Color</span>
               <h3>3D Color</h3>
-              <p>RGB color contrast models native appearance consistency without moving the core comparison into a learned feature space.</p>
+              <p>RGB appearance consistency.</p>
             </article>
             <article class="method-item">
               <span>Saliency</span>
               <h3>2D Saliency</h3>
-              <p>Multi-view projection and saliency detection model attention-related visual importance during rendered inspection.</p>
+              <p>Projected attention cues.</p>
             </article>
             <article class="method-item">
               <span>Fusion</span>
               <h3>Adaptive Fusion</h3>
-              <p>A two-stage strategy first integrates intrinsic 3D fidelity, then modulates it with saliency consistency.</p>
+              <p>3D fidelity, then saliency.</p>
             </article>
           </div>
         </div>
@@ -155,10 +140,7 @@
               <p class="section-kicker">Results</p>
               <h2 id="results-title">Strong training-free performance across public PCQA datasets.</h2>
             </div>
-            <p>
-              MOSAIC achieves the best training-free performance on WPC and LS-PCQA while remaining competitive on
-              SJTU, ICIP, and MJ-PCCD.
-            </p>
+            <p>Best training-free results on WPC and LS-PCQA.</p>
           </div>
           <div class="metrics" aria-label="Highlighted MOSAIC results">
             <div class="metric">
@@ -180,10 +162,6 @@
           <div class="result-block">
             <div class="result-copy">
               <h3>MOSAIC across five PCQA datasets</h3>
-              <p>
-                MOSAIC is evaluated on SJTU, WPC, ICIP, LS-PCQA, and MJ-PCCD using PLCC, SROCC, and RMSE.
-                The score remains competitive across diverse distortions while keeping the metric training-free.
-              </p>
             </div>
             <div class="table-wrap" role="region" aria-label="MOSAIC result table across datasets" tabindex="0">
               <table>
@@ -240,10 +218,6 @@
           <div class="result-block">
             <div class="result-copy">
               <h3>Selected training-free baseline comparison</h3>
-              <p>
-                The table highlights representative training-free FR-PCQA methods on WPC and LS-PCQA, where MOSAIC
-                obtains the strongest reported PLCC/SROCC/RMSE among the listed training-free metrics.
-              </p>
             </div>
             <div class="table-wrap" role="region" aria-label="Selected training-free baseline comparison on WPC and LS-PCQA" tabindex="0">
               <table class="wide-table">
@@ -322,7 +296,6 @@
             <div class="result-block compact">
               <div class="result-copy">
                 <h3>Fusion strategy ablation</h3>
-                <p>Two-stage adaptive fusion gives the best or tied-best result on WPC and LS-PCQA.</p>
               </div>
               <div class="table-wrap" role="region" aria-label="Fusion strategy ablation" tabindex="0">
                 <table class="compact-table">
@@ -373,7 +346,6 @@
             <div class="result-block compact">
               <div class="result-copy">
                 <h3>Runtime comparison</h3>
-                <p>MOSAIC balances multimodal fidelity modeling with practical runtime among training-free metrics.</p>
               </div>
               <div class="table-wrap" role="region" aria-label="Runtime comparison across methods" tabindex="0">
                 <table class="compact-table">
@@ -415,7 +387,7 @@
           </div>
 
           <p class="note">
-            Values follow the paper's training-free FR-PCQA comparison. Higher PLCC/SROCC and lower RMSE indicate better performance.
+            Higher PLCC/SROCC and lower RMSE are better.
           </p>
         </div>
       </section>
@@ -425,7 +397,6 @@
           <div>
             <p class="section-kicker">Citation</p>
             <h2 id="citation-title">Citation coming soon.</h2>
-            <p class="section-lead">The official BibTeX entry will be added after the publication metadata is finalized.</p>
           </div>
           <pre aria-label="Citation placeholder"><code>Citation coming soon.</code></pre>
         </div>
