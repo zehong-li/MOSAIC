@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MOSAIC: Multimodal Perceptual Cue Fusion for Full-Reference Point Cloud Quality Assessment.">
+    <title>MOSAIC | Full-Reference Point Cloud Quality Assessment</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="MOSAIC home">MOSAIC</a>
+      <nav class="nav" aria-label="Page sections">
+        <a href="#overview">Overview</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#citation">Citation</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <p class="venue">IEEE Transactions on Circuits and Systems for Video Technology</p>
+          <h1 id="hero-title">MOSAIC</h1>
+          <p class="subtitle">Multimodal Perceptual Cue Fusion for Full-Reference Point Cloud Quality Assessment</p>
+          <p class="authors">Jiaxin Li, Tong Chen, Zehong Li, Dandan Ding, and Zhan Ma</p>
+          <p class="affiliation">School of Electronic Science and Engineering, Nanjing University</p>
+          <div class="actions" aria-label="Paper links">
+            <a class="button primary" href="assets/mosaic.pdf">Paper</a>
+            <a class="button secondary" href="#citation">Citation</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="overview" aria-labelledby="overview-title">
+        <div class="section-inner overview-grid">
+          <div>
+            <p class="section-kicker">Overview</p>
+            <h2 id="overview-title">Training-free perceptual quality assessment for point clouds.</h2>
+          </div>
+          <div class="overview-copy">
+            <p>
+              MOSAIC formulates full-reference point cloud quality assessment as a multimodal perceptual inference problem.
+              Inspired by Marr's three-level account of vision, it predicts perceived quality from complementary discrepancies
+              in 3D geometry, 3D color, and projected 2D saliency.
+            </p>
+            <p>
+              The framework measures intrinsic fidelity cues in the native 3D domain, then incorporates attention-related
+              saliency consistency through a two-stage adaptive fusion strategy. It does not rely on MOS-supervised fitting
+              or regression-based score integration.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted" id="method" aria-labelledby="method-title">
+        <div class="section-inner">
+          <p class="section-kicker">Method</p>
+          <h2 id="method-title">3D structure and appearance first, saliency-aware fusion second.</h2>
+          <figure class="framework">
+            <img src="assets/mosaic_framework.png" alt="Overview of the MOSAIC framework showing point alignment, 3D feature extraction, 2D saliency projection, and multimodal adaptive fusion.">
+            <figcaption>
+              MOSAIC organizes point-cloud fidelity evidence as geometry, color, and saliency modalities before predicting the final quality score.
+            </figcaption>
+          </figure>
+          <div class="method-grid" aria-label="MOSAIC method components">
+            <article class="method-item">
+              <h3>3D Geometry</h3>
+              <p>Local shape, linearity, curvature, and density cues capture structural fidelity between reference and distorted point clouds.</p>
+            </article>
+            <article class="method-item">
+              <h3>3D Color</h3>
+              <p>RGB color contrast models native appearance consistency without moving the core comparison into a learned feature space.</p>
+            </article>
+            <article class="method-item">
+              <h3>2D Saliency</h3>
+              <p>Multi-view projection and saliency detection model attention-related visual importance during rendered inspection.</p>
+            </article>
+            <article class="method-item">
+              <h3>Adaptive Fusion</h3>
+              <p>A two-stage strategy first integrates intrinsic 3D fidelity, then modulates it with saliency consistency.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="results" aria-labelledby="results-title">
+        <div class="section-inner">
+          <p class="section-kicker">Results</p>
+          <h2 id="results-title">Strong training-free performance across public PCQA datasets.</h2>
+          <div class="metrics" aria-label="Highlighted MOSAIC results">
+            <div class="metric">
+              <span class="metric-value">0.844 / 0.834</span>
+              <span class="metric-label">WPC PLCC / SROCC</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">0.622 / 0.598</span>
+              <span class="metric-label">LS-PCQA PLCC / SROCC</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">6.41s</span>
+              <span class="metric-label">Average runtime</span>
+            </div>
+          </div>
+          <div class="table-wrap" role="region" aria-label="Training-free FR-PCQA result table" tabindex="0">
+            <table>
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th>PLCC</th>
+                  <th>SROCC</th>
+                  <th>RMSE</th>
+                  <th>Positioning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SJTU</td>
+                  <td>0.912</td>
+                  <td>0.898</td>
+                  <td>0.994</td>
+                  <td>Competitive</td>
+                </tr>
+                <tr>
+                  <td>WPC</td>
+                  <td>0.844</td>
+                  <td>0.834</td>
+                  <td>12.292</td>
+                  <td>Best training-free</td>
+                </tr>
+                <tr>
+                  <td>ICIP</td>
+                  <td>0.965</td>
+                  <td>0.955</td>
+                  <td>0.297</td>
+                  <td>Competitive</td>
+                </tr>
+                <tr>
+                  <td>LS-PCQA</td>
+                  <td>0.622</td>
+                  <td>0.598</td>
+                  <td>0.652</td>
+                  <td>Best training-free</td>
+                </tr>
+                <tr>
+                  <td>MJ-PCCD</td>
+                  <td>0.831</td>
+                  <td>0.755</td>
+                  <td>0.651</td>
+                  <td>Competitive</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">
+            Reported values follow the paper's training-free FR-PCQA comparison. Higher PLCC/SROCC and lower RMSE indicate better performance.
+          </p>
+        </div>
+      </section>
+
+      <section class="section muted" id="citation" aria-labelledby="citation-title">
+        <div class="section-inner citation-grid">
+          <div>
+            <p class="section-kicker">Citation</p>
+            <h2 id="citation-title">Citation coming soon.</h2>
+          </div>
+          <pre aria-label="Citation placeholder"><code>Citation coming soon.</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>MOSAIC</span>
+      <span>Full-Reference Point Cloud Quality Assessment</span>
+    </footer>
+  </body>
+</html>
