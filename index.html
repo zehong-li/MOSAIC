@@ -9,7 +9,10 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="MOSAIC home">MOSAIC</a>
+      <a class="brand" href="#top" aria-label="MOSAIC home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        MOSAIC
+      </a>
       <nav class="nav" aria-label="Page sections">
         <a href="#overview">Overview</a>
         <a href="#method">Method</a>
@@ -21,14 +24,41 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
-          <p class="venue">IEEE Transactions on Circuits and Systems for Video Technology</p>
-          <h1 id="hero-title">MOSAIC</h1>
-          <p class="subtitle">Multimodal Perceptual Cue Fusion for Full-Reference Point Cloud Quality Assessment</p>
-          <p class="authors">Jiaxin Li, Tong Chen, Zehong Li, Dandan Ding, and Zhan Ma</p>
-          <p class="affiliation">School of Electronic Science and Engineering, Nanjing University</p>
-          <div class="actions" aria-label="Paper links">
-            <a class="button primary" href="assets/mosaic.pdf">Paper</a>
-            <a class="button secondary" href="#citation">Citation</a>
+          <div class="hero-copy">
+            <p class="venue">IEEE Transactions on Circuits and Systems for Video Technology</p>
+            <h1 id="hero-title">MOSAIC</h1>
+            <p class="subtitle">Multimodal Perceptual Cue Fusion for Full-Reference Point Cloud Quality Assessment</p>
+            <div class="hero-meta" aria-label="Authors and affiliation">
+              <p>Jiaxin Li, Tong Chen, Zehong Li, Dandan Ding, and Zhan Ma</p>
+              <p>School of Electronic Science and Engineering, Nanjing University</p>
+            </div>
+            <div class="actions" aria-label="Paper links">
+              <a class="button primary" href="assets/mosaic.pdf">Paper</a>
+              <a class="button secondary" href="#citation">Citation</a>
+            </div>
+            <div class="hero-measures" aria-label="MOSAIC summary metrics">
+              <span><strong>5</strong> public PCQA datasets</span>
+              <span><strong>0</strong> MOS-supervised fitting</span>
+              <span><strong>6.41s</strong> average runtime</span>
+            </div>
+          </div>
+          <div class="hero-strip" aria-label="MOSAIC highlights">
+            <article>
+              <b>01</b>
+              <span>Training-free FR-PCQA</span>
+            </article>
+            <article>
+              <b>02</b>
+              <span>3D geometry + color</span>
+            </article>
+            <article>
+              <b>03</b>
+              <span>Projected 2D saliency</span>
+            </article>
+            <article>
+              <b>04</b>
+              <span>Two-stage adaptive fusion</span>
+            </article>
           </div>
         </div>
       </section>
@@ -38,6 +68,10 @@
           <div>
             <p class="section-kicker">Overview</p>
             <h2 id="overview-title">Training-free perceptual quality assessment for point clouds.</h2>
+            <p class="section-lead">
+              MOSAIC organizes full-reference quality evidence as interpretable perceptual cues instead of fitting a
+              dataset-specific score regressor.
+            </p>
           </div>
           <div class="overview-copy">
             <p>
@@ -51,13 +85,38 @@
               or regression-based score integration.
             </p>
           </div>
+          <div class="marr-stack" aria-label="Marr-inspired organization">
+            <article>
+              <span>01</span>
+              <h3>Computational</h3>
+              <p>Infer perceived quality from reference-distorted discrepancies.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Representational</h3>
+              <p>Describe degradation with geometry, color, and saliency cues.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Implementational</h3>
+              <p>Extract 3D features, project views, estimate saliency, and fuse scores.</p>
+            </article>
+          </div>
         </div>
       </section>
 
       <section class="section muted" id="method" aria-labelledby="method-title">
         <div class="section-inner">
-          <p class="section-kicker">Method</p>
-          <h2 id="method-title">3D structure and appearance first, saliency-aware fusion second.</h2>
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Method</p>
+              <h2 id="method-title">3D structure and appearance first, saliency-aware fusion second.</h2>
+            </div>
+            <p>
+              The pipeline keeps the native point-cloud comparison visible, then adds view-dependent attention as a
+              separate perceptual modulation stage.
+            </p>
+          </div>
           <figure class="framework">
             <img src="assets/mosaic_framework.png" alt="Overview of the MOSAIC framework showing point alignment, 3D feature extraction, 2D saliency projection, and multimodal adaptive fusion.">
             <figcaption>
@@ -66,18 +125,22 @@
           </figure>
           <div class="method-grid" aria-label="MOSAIC method components">
             <article class="method-item">
+              <span>Geometry</span>
               <h3>3D Geometry</h3>
               <p>Local shape, linearity, curvature, and density cues capture structural fidelity between reference and distorted point clouds.</p>
             </article>
             <article class="method-item">
+              <span>Color</span>
               <h3>3D Color</h3>
               <p>RGB color contrast models native appearance consistency without moving the core comparison into a learned feature space.</p>
             </article>
             <article class="method-item">
+              <span>Saliency</span>
               <h3>2D Saliency</h3>
               <p>Multi-view projection and saliency detection model attention-related visual importance during rendered inspection.</p>
             </article>
             <article class="method-item">
+              <span>Fusion</span>
               <h3>Adaptive Fusion</h3>
               <p>A two-stage strategy first integrates intrinsic 3D fidelity, then modulates it with saliency consistency.</p>
             </article>
@@ -87,18 +150,29 @@
 
       <section class="section" id="results" aria-labelledby="results-title">
         <div class="section-inner">
-          <p class="section-kicker">Results</p>
-          <h2 id="results-title">Strong training-free performance across public PCQA datasets.</h2>
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Results</p>
+              <h2 id="results-title">Strong training-free performance across public PCQA datasets.</h2>
+            </div>
+            <p>
+              MOSAIC achieves the best training-free performance on WPC and LS-PCQA while remaining competitive on
+              SJTU, ICIP, and MJ-PCCD.
+            </p>
+          </div>
           <div class="metrics" aria-label="Highlighted MOSAIC results">
             <div class="metric">
+              <span class="metric-tag">WPC</span>
               <span class="metric-value">0.844 / 0.834</span>
               <span class="metric-label">WPC PLCC / SROCC</span>
             </div>
             <div class="metric">
+              <span class="metric-tag">LS-PCQA</span>
               <span class="metric-value">0.622 / 0.598</span>
               <span class="metric-label">LS-PCQA PLCC / SROCC</span>
             </div>
             <div class="metric">
+              <span class="metric-tag">Runtime</span>
               <span class="metric-value">6.41s</span>
               <span class="metric-label">Average runtime</span>
             </div>
@@ -164,6 +238,7 @@
           <div>
             <p class="section-kicker">Citation</p>
             <h2 id="citation-title">Citation coming soon.</h2>
+            <p class="section-lead">The official BibTeX entry will be added after the publication metadata is finalized.</p>
           </div>
           <pre aria-label="Citation placeholder"><code>Citation coming soon.</code></pre>
         </div>
